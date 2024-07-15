@@ -344,20 +344,15 @@
         </div>
     </div>
     <!-- Widget code -->
-<!-- Div principal do chatbot -->
 <div id="lyzr_chatbot" class="56b7ceba-1ec8-4b79-a057-5bd9e3a6f8b7">
-    <!-- Botão fixo para abrir/fechar o chatbot -->
     <button class="fixed right-8 bottom-4 w-10 h-10" onclick="openChat()">
       <div class="rounded-full w-12 h-12 grid place-items-center p-2">
         <span id="unread"></span>
-        <!-- Imagem do botão -->
         <img src="assets/chatbot_open_icon_.svg" class="w-8 h-8 rounded-full" alt="Abrir Chatbot">
       </div>
     </button>
     
-    <!-- Div do formulário de chat -->
     <div id="myForm" class="flex flex-col bg-white h-[25rem] min-w-[18rem] max-w-[25rem] fixed right-8 bottom-16 rounded-md p-3 shadow-md border hidden">
-      <!-- Mensagem de erro caso o chatbot não seja encontrado -->
       <div id="chatbot_not_found" class="hidden flex-col items-center justify-center w-full h-full bg-white text-slate-400">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
@@ -367,30 +362,23 @@
         </p>
       </div>
       
-      <!-- Cabeçalho do chat -->
       <div class="flex-none">
         <div id="header" class="py-2 flex justify-between items-center border-b border-slate-200">
           <p id="chatbot_name" class="text-slate-800 font-medium text-md"></p>
-          <!-- Botão para fechar o chat -->
           <button onclick="closeChat()">
             <img src="assets/chatbot_icon_x.svg" class="w-4 h-4" alt="Fechar Chatbot">
           </button>
         </div>
       </div>
       
-      <!-- Corpo do chat -->
       <div id="body" class="grow py-2 max-h-4/6 overflow-y-auto scroll-smooth no-scrollbar">
-        <!-- Lista de mensagens do chat -->
         <ul id="chat-messages" class="list-none"></ul>
         <div id="chat-bottom"></div>
       </div>
       
-      <!-- Rodapé do chat -->
       <div class="flex-none">
         <div id="footer" class="p-2 flex justify-between items-center rounded-lg bg-slate-200">
-          <!-- Área de texto para escrever mensagens -->
           <textarea rows="1" id='editor' placeholder="Write query here and press Enter" onkeyup="onSend(event)" class="w-[90%] rounded-md placeholder:text-sm p-1 border border-slate-100"></textarea>
-          <!-- Botão para enviar a mensagem -->
           <button onclick="onSend(event)">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 -rotate-45 text-slate-500">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
@@ -400,40 +388,31 @@
       </div>
     </div>
     
-    <!-- Scripts JavaScript -->
     <script>
-      // Função para enviar uma mensagem pré-definida
       function sendMessage(event) {
-        // Envia a mensagem "bom dia, tenho uma duvida"
         const editor = document.getElementById('editor');
         editor.value = 'bom dia, tenho uma duvida';
-        // Chama a função onSend passando o evento
         onSend(event);
       }
       
-      // Função para enviar a mensagem ao pressionar Enter ou clicar no botão
       function onSend(event) {
         if (event.key === 'Enter' || event.type === 'click') {
           const message = document.getElementById('editor').value;
           if (message.trim() !== '') {
-            // Adiciona a mensagem ao chat
             const messageList = document.getElementById('chat-messages');
             const newMessage = document.createElement('li');
             newMessage.textContent = message;
             messageList.appendChild(newMessage);
-            // Limpa o editor
             document.getElementById('editor').value = '';
           }
         }
       }
       
-      // Função para abrir o chat
       function openChat() {
         const chatForm = document.getElementById('myForm');
         chatForm.classList.remove('hidden');
       }
       
-      // Função para fechar o chat
       function closeChat() {
         const chatForm = document.getElementById('myForm');
         chatForm.classList.add('hidden');
