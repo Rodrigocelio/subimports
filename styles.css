@@ -3298,6 +3298,7 @@ textarea.w-input, textarea.w-select {
   justify-content: flex-start;
   align-items: flex-start;
   display: flex;
+  padding: 0 0 0 16px;
 }
 
 .footer-title {
@@ -3560,6 +3561,7 @@ textarea.w-input, textarea.w-select {
   flex-flow: row;
   justify-content: space-between;
   align-items: stretch;
+  padding-top: 60px;
   margin-top: 40px;
   margin-bottom: 40px;
   display: flex;
@@ -6026,6 +6028,7 @@ textarea.w-input, textarea.w-select {
 
   ._100-div-top {
     margin-top: 100px;
+    padding-top: 8px;
   }
 
   .container-btn {
