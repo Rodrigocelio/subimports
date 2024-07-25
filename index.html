@@ -173,17 +173,17 @@
 </div>
 <div class=itens_container>
 <div class=frame-services>
-<div class=frame-lcd>
+<a id=m onclick=openChat()><div class=frame-lcd>
 <div class=div-block-ico><img src=https://cdn.prod.website-files.com/66619fac0681499bf54b5284/66883e7712f0f31364f3c18d_Vectors-Wrapper.svg loading=lazy width=28.125 height=50.00048828125 alt="" class=vectors-wrapper-19></div>
 <div class=heading-4-lcd-screen>Reparo de Tela</div>
-</div>
-<div class=frame-lcd><img src=https://cdn.prod.website-files.com/66619fac0681499bf54b5284/66883e774d65bd157e55a493_laptop-battery-replacement.png.png loading=lazy width=59 height=58.720001220703125 alt="" class=laptop-battery-replacement-png>
+</div></a>
+<a id=n onclick=openChat()><div class=frame-lcd><img src=https://cdn.prod.website-files.com/66619fac0681499bf54b5284/66883e774d65bd157e55a493_laptop-battery-replacement.png.png loading=lazy width=59 height=58.720001220703125 alt="" class=laptop-battery-replacement-png>
 <div class=heading-4-lcd-screen>Troca de Bateria</div>
-</div>
-<div class=frame-lcd>
+</div></a>
+<a id=p onclick=openChat()><div class=frame-lcd>
 <div class=mask-group><img src=https://cdn.prod.website-files.com/66619fac0681499bf54b5284/66883e78628d502116104fde_tablet-charging.png.png loading=lazy width=60.286102294921875 height=58.720001220703125 alt="" class=tablet-charging-png></div>
 <div class=heading-4-charging-port>Outros Reparos</div>
-</div>
+</div></a>
 </div>
 </div>
 </div>
@@ -338,9 +338,9 @@ No Chatbot found
 </button>
 </div>
 </div>
-<style>.center-box{background-color:#09f;display:flex;flex-direction:column;align-items:center;justify-content:center;height:564px;position:absolute;left:77px;right:76px;top:218px;gap:10px}.inner-box{background-color:#eee;display:flex;align-items:center;justify-content:center;height:22px;width:172px;gap:4px;border:1px solid #ddd;border-radius:0 0 6px 6px;box-shadow:0 .6px .6px -1.25px #0000002e,0 2.29px 2.29px -2.5px #00000029,0 10px 10px -3.75px #00000010}.inner-box p{font-size:12px;font-weight:700;color:#66727c;margin:0}.logo{width:16px;height:16px}.logo img{width:100%;height:100%;object-fit:cover;border-radius:inherit}.logo-text{font-size:13px;font-weight:700;color:#66727c;margin:0;text-align:center;user-select:none}</style>
+<style>.flex{gap:16px}.center-box{background-color:#09f;display:flex;flex-direction:column;align-items:center;justify-content:center;height:564px;position:absolute;left:77px;right:76px;top:218px;gap:10px}.inner-box{background-color:#eee;display:flex;align-items:center;justify-content:center;height:22px;width:172px;gap:4px;border:1px solid #ddd;border-radius:0 0 6px 6px;box-shadow:0 .6px .6px -1.25px #0000002e,0 2.29px 2.29px -2.5px #00000029,0 10px 10px -3.75px #00000010}.inner-box p{font-size:12px;font-weight:700;color:#66727c;margin:0}.logo{width:16px;height:16px}.logo img{width:100%;height:100%;object-fit:cover;border-radius:inherit}.logo-text{font-size:13px;font-weight:700;color:#66727c;margin:0;text-align:center;user-select:none}</style>
 <div style=display:flex;flex-direction:column;align-items:center>
-<a href="#" target=_blank> <div class=inner-box>
+<a href=https://leadster.com.br/ target=_blank> <div class=inner-box>
 <p>Feito com</p>
 <div class=logo>
 <img src=assets/leadst-chat-icon.png alt=Leadster>
@@ -348,7 +348,7 @@ No Chatbot found
 <p class=logo-text>Leadster</p> </div></a>
 </div>
 </div>
-<script>function sendMessage(e){document.getElementById("editor").value=`Olá, quais os modelos de ${e} disponíveis?`,onSend({key:"Enter"})}function onSend(e){if("Enter"===e.key||"click"===e.type){const e=document.getElementById("editor").value;if(""!==e.trim()){const t=document.getElementById("chat-messages"),n=document.createElement("li");n.textContent=e,t.appendChild(n),document.getElementById("editor").value=""}}}function openChat(){document.getElementById("myForm").classList.remove("hidden")}function closeChat(){document.getElementById("myForm").classList.add("hidden")}const a=document.getElementById("a"),b=document.getElementById("b"),c=document.getElementById("c"),d=document.getElementById("d"),e=document.getElementById("e"),f=document.getElementById("f"),g=document.getElementById("g"),i=document.getElementById("i"),j=document.getElementById("j"),l=document.getElementById("l");a.addEventListener("click",(()=>sendMessage("iPhones"))),b.addEventListener("click",(()=>sendMessage("iPads"))),c.addEventListener("click",(()=>sendMessage("Xiaomi"))),d.addEventListener("click",(()=>sendMessage("Smartwatchs"))),e.addEventListener("click",(()=>sendMessage("JBL"))),f.addEventListener("click",(()=>sendMessage("fones"))),g.addEventListener("click",(()=>sendMessage("Películas"))),i.addEventListener("click",(()=>sendMessage("Capas de Celulares"))),j.addEventListener("click",(()=>sendMessage("Carregadores"))),l.addEventListener("click",(()=>sendMessage("Cabos de Celulares")))</script>
+<script>function sendMessage(e){document.getElementById("editor").value=`Olá, preciso de informações sobre ${e} .`,onSend({key:"Enter"})}function onSend(e){if("Enter"===e.key||"click"===e.type){const e=document.getElementById("editor").value;if(""!==e.trim()){const t=document.getElementById("chat-messages"),n=document.createElement("li");n.textContent=e,t.appendChild(n),document.getElementById("editor").value=""}}}function openChat(){document.getElementById("myForm").classList.remove("hidden")}function closeChat(){document.getElementById("myForm").classList.add("hidden")}const a=document.getElementById("a"),b=document.getElementById("b"),c=document.getElementById("c"),d=document.getElementById("d"),e=document.getElementById("e"),f=document.getElementById("f"),g=document.getElementById("g"),i=document.getElementById("i"),j=document.getElementById("j"),l=document.getElementById("l"),m=document.getElementById("m"),n=document.getElementById("n"),o=document.getElementById("p");a.addEventListener("click",(()=>sendMessage("iPhones"))),b.addEventListener("click",(()=>sendMessage("iPads"))),c.addEventListener("click",(()=>sendMessage("Xiaomi"))),d.addEventListener("click",(()=>sendMessage("Smartwatchs"))),e.addEventListener("click",(()=>sendMessage("JBL"))),f.addEventListener("click",(()=>sendMessage("fones"))),g.addEventListener("click",(()=>sendMessage("Películas"))),i.addEventListener("click",(()=>sendMessage("Capas de Celulares"))),j.addEventListener("click",(()=>sendMessage("Carregadores"))),l.addEventListener("click",(()=>sendMessage("Cabos de Celulares"))),m.addEventListener("click",(()=>sendMessage("Troca de Tela"))),n.addEventListener("click",(()=>sendMessage("Troca de Bateria"))),p.addEventListener("click",(()=>sendMessage("Outros Reparos")))</script>
 <style>.no-scrollbar::-webkit-scrollbar{display:none}.no-scrollbar{-ms-overflow-style:none;scrollbar-width:none}.dot-typing{position:relative;left:-9999px;width:10px;height:10px;border-radius:5px;background-color:#777;color:#777;box-shadow:9984px 0 0 0 #777,9999px 0 0 0 #777,10014px 0 0 0 #777;animation:dot-typing 1.5s infinite linear}@keyframes dot-typing{0%{box-shadow:9984px 0 0 0 #777,9999px 0 0 0 #777,10014px 0 0 0 #777}16.667%{box-shadow:9984px -10px 0 0 #777,9999px 0 0 0 #777,10014px 0 0 0 #777}33.333%{box-shadow:9984px 0 0 0 #777,9999px 0 0 0 #777,10014px 0 0 0 #777}50%{box-shadow:9984px 0 0 0 #777,9999px -10px 0 0 #777,10014px 0 0 0 #777}66.667%{box-shadow:9984px 0 0 0 #777,9999px 0 0 0 #777,10014px 0 0 0 #777}83.333%{box-shadow:9984px 0 0 0 #777,9999px 0 0 0 #777,10014px -10px 0 0 #777}100%{box-shadow:9984px 0 0 0 #777,9999px 0 0 0 #777,10014px 0 0 0 #777}}</style>
 <script type=module src=https://cdn.skypack.dev/@vanillawc/wc-markdown></script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
