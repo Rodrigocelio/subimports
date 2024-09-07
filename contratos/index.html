@@ -64,8 +64,10 @@ data.endereco.geral.cep: "68625000" -->
                 xhttp.open("GET", "https://api.bling.com.br/Api/v3/contatos/" + id, true);
                 xhttp.setRequestHeader("Accept", "application/json");
                 xhttp.setRequestHeader("Authorization", "Bearer fa4f7be0e52dbd359b18636030ffee35428920d7");
+                xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
                 xhttp.send();
             }
+        
         </script>
     </form>
 </body>
