@@ -47,6 +47,7 @@ data.endereco.geral.cep: "68625000" -->
             <button type="button" onclick="getContato()">Buscar</button>
         </fieldset>
         <script>
+            
             function getContato() {
                 var id = document.querySelector('input[name="id"]').value;
                 var xhttp = new XMLHttpRequest();
@@ -59,12 +60,29 @@ data.endereco.geral.cep: "68625000" -->
                         document.querySelector('input[name="celular"]').value = contato.contato.fone;
                         document.querySelector('input[name="email"]').value = contato.contato.email;
                         document.querySelector('input[name="cep"]').value = contato.contato.cep;
+                        console.log(contato);
                     }
                 };
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                        if (this.status == 200) {
+                            try {
+                                var contato = JSON.parse(this.responseText);
+                                // Populate form fields with the response
+                            } catch (e) {
+                                console.error('Failed to parse response JSON', e);
+                            }
+                        } else {
+                            console.error('Request failed with status: ' + this.status);
+                        }
+                    }
+                };
+
                 xhttp.open("GET", "https://api.bling.com.br/Api/v3/contatos/" + id, true);
                 xhttp.setRequestHeader("Accept", "application/json");
-                xhttp.setRequestHeader("Authorization", "Bearer fa4f7be0e52dbd359b18636030ffee35428920d7");
+                xhttp.setRequestHeader("Authorization", "Bearer ");
                 xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
+                xhttp.setRequestHeader("Content-Type", "application/json");
                 xhttp.send();
             }
         
