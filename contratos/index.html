@@ -1,4 +1,3 @@
-    
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -29,9 +28,9 @@
     </div>
 
     <script>
-        // URL da API e token de autenticação
+        // URL da API e API Key para autenticação
         const apiUrl = 'https://api.bling.com.br/Api/v3/contatos';
-        const token = 'c32aaa7f975df142ffaa780f34f37ed2e219f101';
+        const apiKey = '706dfb6d84b759ae9e9bfad909cb44c0218211230289489f0bf71926c32b';
 
         // Função para buscar dados do cliente pela API
         async function buscarCliente(idCliente) {
@@ -39,8 +38,8 @@
                 const response = await fetch(`${apiUrl}/${idCliente}`, {
                     method: 'GET',
                     headers: {
-                        'Authorization': `Bearer ${token}`,
                         'Accept': 'application/json',
+                        'apikey': apiKey // Adicionando a apikey no cabeçalho
                     },
                 });
 
