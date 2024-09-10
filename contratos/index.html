@@ -1,93 +1,89 @@
-<!-- Informações do JSON
-data.id: 16918307105
-data.nome: "Maria Geovanna Souza Costa"
-data.codigo: "83"
-data.numeroDocumento: "05413254261"
-data.celular: "(91) 98637-9778"
-data.email: "mariageovannasouzacosta74@gmail.com"
-data.endereco.geral.cep: "68625000" -->
-
+    
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário consulta de clientes</title>
+    <title>Formulário de Cliente</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link para o arquivo CSS -->
 </head>
 <body>
-    <header>
-        <h1>Formul rio de Consulta de Clientes</h1>
-    </header>
-    <form action="" method="post">
-        <fieldset>
-            <legend>Dados Pessoais</legend>
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" value="" readonly>
-            <label for="codigo">C digo:</label>
-            <input type="text" id="codigo" name="codigo" value="" readonly>
-            <label for="numeroDocumento">CPF:</label>
-            <input type="text" id="numeroDocumento" name="numeroDocumento" value="" readonly>
-        </fieldset>
-        <fieldset>
-            <legend>Contato</legend>
-            <label for="celular">Celular:</label>
-            <input type="text" id="celular" name="celular" value="" readonly>
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" value="" readonly>
-        </fieldset>
-        <fieldset>
-            <legend>Endere o</legend>
-            <label for="cep">CEP:</label>
-            <input type="text" id="cep" name="cep" value="" readonly>
-        </fieldset>
-        <fieldset>
-            <legend>ID do Contato</legend>
-            <label for="id">ID:</label>
-            <input type="text" id="id" name="id" value="">
-            <button type="button" onclick="getContato()">Buscar</button>
-        </fieldset>
-        <script>
-            
-            function getContato() {
-                var id = document.querySelector('input[name="id"]').value;
-                var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        var contato = JSON.parse(this.responseText);
-                        document.querySelector('input[name="nome"]').value = contato.contato.nome;
-                        document.querySelector('input[name="codigo"]').value = contato.contato.codigo;
-                        document.querySelector('input[name="numeroDocumento"]').value = contato.contato.numDocumento;
-                        document.querySelector('input[name="celular"]').value = contato.contato.fone;
-                        document.querySelector('input[name="email"]').value = contato.contato.email;
-                        document.querySelector('input[name="cep"]').value = contato.contato.cep;
-                        console.log(contato);
-                    }
-                };
-                xhttp.onreadystatechange = function() {
-                    if (this.readyState == 4) {
-                        if (this.status == 200) {
-                            try {
-                                var contato = JSON.parse(this.responseText);
-                                // Populate form fields with the response
-                            } catch (e) {
-                                console.error('Failed to parse response JSON', e);
-                            }
-                        } else {
-                            console.error('Request failed with status: ' + this.status);
-                        }
-                    }
+    <div class="container">
+        <h2>STEP1 - INFORMAÇÕES SOBRE O CLIENTE</h2>
+        
+        <form id="form-cliente">
+            <label for="id-cliente">ID Cliente</label>
+            <input type="text" id="id-cliente" placeholder="Digite o ID" required>
+
+            <button type="button" class="btn" id="buscar">🔍 Buscar</button>
+
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" placeholder="Digite o nome" required>
+
+            <label for="email">Email</label>
+            <input type="text" id="email" placeholder="Digite o email" required>
+
+            <label for="cpf">CPF</label>
+            <input type="text" id="cpf" placeholder="Digite o CPF" required>
+        </form>
+    </div>
+
+    <script>
+        // URL da API e token de autenticação
+        const apiUrl = 'https://api.bling.com.br/Api/v3/contatos';
+        const token = 'c32aaa7f975df142ffaa780f34f37ed2e219f101';
+
+        // Função para buscar dados do cliente pela API
+        async function buscarCliente(idCliente) {
+            try {
+                const response = await fetch(`${apiUrl}/${idCliente}`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Accept': 'application/json',
+                    },
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Erro ao buscar cliente: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                
+                // Extraindo os dados do cliente
+                const cliente = {
+                    id: data.retorno.contatos[0].contato.id,
+                    nome: data.retorno.contatos[0].contato.nome,
+                    numeroDocumento: data.retorno.contatos[0].contato.numeroDocumento,
+                    email: data.retorno.contatos[0].contato.email,
                 };
 
-                xhttp.open("GET", "https://api.bling.com.br/Api/v3/contatos/" + id, true);
-                xhttp.setRequestHeader("Accept", "application/json");
-                xhttp.setRequestHeader("Authorization", "Bearer ");
-                xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
-                xhttp.setRequestHeader("Content-Type", "application/json");
-                xhttp.send();
+                return cliente;
+
+            } catch (error) {
+                console.error(error);
+                alert("Erro ao buscar o cliente. Verifique o console para mais detalhes.");
+                return null;
             }
-        
-        </script>
-    </form>
+        }
+
+        // Evento para buscar o cliente ao clicar no botão
+        document.getElementById('buscar').addEventListener('click', async function() {
+            const idCliente = document.getElementById('id-cliente').value.trim();
+            
+            if (idCliente === "") {
+                alert("Por favor, insira um ID de Cliente válido.");
+                return;
+            }
+
+            const cliente = await buscarCliente(idCliente);
+            if (cliente) {
+                // Preencher os campos com os dados retornados da API
+                document.getElementById('nome').value = cliente.nome;
+                document.getElementById('email').value = cliente.email;
+                document.getElementById('cpf').value = cliente.numeroDocumento;
+            }
+        });
+    </script>
 </body>
 </html>
-
