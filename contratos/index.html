@@ -7,45 +7,48 @@
     <link rel="stylesheet" href="style.css"> <!-- Link para o arquivo CSS -->
 </head>
 <body>
-    <div class="container">
+    <div style="display: flex; flex-direction: column;">
         <h2>STEP1 - INFORMAÇÕES SOBRE O CLIENTE</h2>
-        
-        <form id="form-cliente">
-            <label for="cod-cliente">Código do Cliente</label>
-            <input type="search" id="cod-cliente" placeholder="Digite o Código" required>
+        <div class="w-container">
+            
+            
+            <form class="w-form" id="form-cliente">
+                <label class="w-form-label" for="cod-cliente">Código do Cliente</label>
+                <input class="w-input" type="search" id="cod-cliente" placeholder="Digite o Código" required>
+                <button type="button" class="btn-primary" id="buscar">🔍 Buscar</button>
+                 <div style="line-height: 1px; border-bottom: 1px solid rgb(197, 192, 192); padding: 10px"> </div>
 
-            <button type="button" class="btn" id="buscar">🔍 Buscar</button>
+                <label class="w-form-label" for="nome">Nome</label>
+                <input class="w-input" type="text" id="nome" placeholder="Digite o nome" required>
 
-            <label for="nome">Nome</label>
-            <input type="text" id="nome" placeholder="Digite o nome" required>
+                <label class="w-form-label" for="email">Email</label>
+                <input class="w-input" type="text" id="email" placeholder="Digite o email" required>
 
-            <label for="email">Email</label>
-            <input type="text" id="email" placeholder="Digite o email" required>
+                <label class="w-form-label" for="cpf">CPF/CNPJ</label>
+                <input class="w-input" type="text" id="cpf" placeholder="Digite o CPF/CNPJ" required>
 
-            <label for="cpf">CPF/CNPJ</label>
-            <input type="text" id="cpf" placeholder="Digite o CPF/CNPJ" required>
+                <label class="w-form-label" for="celular">Celular</label>
+                <input class="w-input" type="text" id="celular" placeholder="Digite o celular" required>
 
-            <label for="celular">Celular</label>
-            <input type="text" id="celular" placeholder="Digite o celular" required>
+                <label class="w-form-label" for="cep">CEP</label>
+                <input class="w-input" type="text" id="cep" placeholder="Digite o CEP" required>
 
-            <label for="cep">CEP</label>
-            <input type="text" id="cep" placeholder="Digite o CEP" required>
+                <label class="w-form-label" for="endereco">Endereço</label>
+                <input class="w-input" type="text" id="endereco" placeholder="Digite o endereço" required>
 
-            <label for="endereco">Endereço</label>
-            <input type="text" id="endereco" placeholder="Digite o endereço" required>
+                <label class="w-form-label" for="bairro">Bairro</label>
+                <input class="w-input" type="text" id="bairro" placeholder="Digite o bairro" required>
 
-            <label for="bairro">Bairro</label>
-            <input type="text" id="bairro" placeholder="Digite o bairro" required>
+                <label class="w-form-label" for="cidade">Cidade</label>
+                <input class="w-input" type="text" id="cidade" placeholder="Digite a cidade" required>
 
-            <label for="cidade">Cidade</label>
-            <input type="text" id="cidade" placeholder="Digite a cidade" required>
+                <label class="w-form-label" for="uf">UF</label>
+                <input class="w-input" type="text" id="uf" placeholder="Digite a UF" required>
 
-            <label for="uf">UF</label>
-            <input type="text" id="uf" placeholder="Digite a UF" required>
-
-            <label for="data-nascimento">Data de Nascimento</label>
-            <input type="text" id="data-nascimento" placeholder="Digite a data de nascimento" required>
-        </form>
+                <label class="w-form-label" for="data-nascimento">Data de Nascimento</label>
+                <input class="w-input" type="text" id="data-nascimento" placeholder="Digite a data de nascimento" required>
+            </form>
+        </div>
     </div>
 
     <script>
