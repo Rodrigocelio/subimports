@@ -11,8 +11,8 @@
         <h2>STEP1 - INFORMAÇÕES SOBRE O CLIENTE</h2>
         
         <form id="form-cliente">
-            <label for="id-cliente">ID Cliente</label>
-            <input type="text" id="id-cliente" placeholder="Digite o ID" required>
+            <label for="cod-cliente">Código do Cliente</label>
+            <input type="search" id="cod-cliente" placeholder="Digite o Código" required>
 
             <button type="button" class="btn" id="buscar">🔍 Buscar</button>
 
@@ -22,65 +22,93 @@
             <label for="email">Email</label>
             <input type="text" id="email" placeholder="Digite o email" required>
 
-            <label for="cpf">CPF</label>
-            <input type="text" id="cpf" placeholder="Digite o CPF" required>
+            <label for="cpf">CPF/CNPJ</label>
+            <input type="text" id="cpf" placeholder="Digite o CPF/CNPJ" required>
+
+            <label for="celular">Celular</label>
+            <input type="text" id="celular" placeholder="Digite o celular" required>
+
+            <label for="cep">CEP</label>
+            <input type="text" id="cep" placeholder="Digite o CEP" required>
+
+            <label for="endereco">Endereço</label>
+            <input type="text" id="endereco" placeholder="Digite o endereço" required>
+
+            <label for="bairro">Bairro</label>
+            <input type="text" id="bairro" placeholder="Digite o bairro" required>
+
+            <label for="cidade">Cidade</label>
+            <input type="text" id="cidade" placeholder="Digite a cidade" required>
+
+            <label for="uf">UF</label>
+            <input type="text" id="uf" placeholder="Digite a UF" required>
+
+            <label for="data-nascimento">Data de Nascimento</label>
+            <input type="text" id="data-nascimento" placeholder="Digite a data de nascimento" required>
         </form>
     </div>
 
     <script>
-        // URL da API e API Key para autenticação
-        const apiUrl = 'https://api.bling.com.br/Api/v3/contatos';
-        const apiKey = '706dfb6d84b759ae9e9bfad909cb44c0218211230289489f0bf71926c32b';
+        // URL da API do Baserow e token de autenticação
+        const apiUrl = 'https://api.baserow.io/api/database/rows/table/353676/?user_field_names=true';
+        const token = 's2NSZMdEQV8WwAQUW2FqZ8lnyHl14YfY';
 
-        // Função para buscar dados do cliente pela API
-        async function buscarCliente(idCliente) {
+        // Função para buscar os dados do cliente pela API do Baserow
+        async function buscarDadosCliente(codCliente) {
             try {
-                const response = await fetch(`${apiUrl}/${idCliente}`, {
+                const response = await fetch(apiUrl, {
                     method: 'GET',
                     headers: {
+                        'Authorization': `Token ${token}`,
                         'Accept': 'application/json',
-                        'apikey': apiKey // Adicionando a apikey no cabeçalho
-                    },
+                    }
                 });
 
                 if (!response.ok) {
-                    throw new Error(`Erro ao buscar cliente: ${response.statusText}`);
+                    throw new Error(`Erro ao buscar dados: ${response.statusText}`);
                 }
 
                 const data = await response.json();
                 
-                // Extraindo os dados do cliente
-                const cliente = {
-                    id: data.retorno.contatos[0].contato.id,
-                    nome: data.retorno.contatos[0].contato.nome,
-                    numeroDocumento: data.retorno.contatos[0].contato.numeroDocumento,
-                    email: data.retorno.contatos[0].contato.email,
-                };
+                // Procurar o cliente com base no código fornecido
+                const cliente = data.results.find(cliente => cliente.Codigo === codCliente);
+
+                if (!cliente) {
+                    alert('Cliente não encontrado.');
+                    return null;
+                }
 
                 return cliente;
 
             } catch (error) {
                 console.error(error);
-                alert("Erro ao buscar o cliente. Verifique o console para mais detalhes.");
+                alert("Erro ao buscar os dados do cliente. Verifique o console para mais detalhes.");
                 return null;
             }
         }
 
         // Evento para buscar o cliente ao clicar no botão
         document.getElementById('buscar').addEventListener('click', async function() {
-            const idCliente = document.getElementById('id-cliente').value.trim();
-            
-            if (idCliente === "") {
-                alert("Por favor, insira um ID de Cliente válido.");
+            const codCliente = document.getElementById('cod-cliente').value.trim();
+
+            if (codCliente === "") {
+                alert("Por favor, insira um código de cliente válido.");
                 return;
             }
 
-            const cliente = await buscarCliente(idCliente);
+            const cliente = await buscarDadosCliente(codCliente);
             if (cliente) {
                 // Preencher os campos com os dados retornados da API
-                document.getElementById('nome').value = cliente.nome;
-                document.getElementById('email').value = cliente.email;
-                document.getElementById('cpf').value = cliente.numeroDocumento;
+                document.getElementById('nome').value = cliente.Nome;
+                document.getElementById('email').value = cliente.Email;
+                document.getElementById('cpf').value = cliente["CNPJ / CPF"];
+                document.getElementById('celular').value = cliente.Celular;
+                document.getElementById('cep').value = cliente.CEP;
+                document.getElementById('endereco').value = cliente.Endereço;
+                document.getElementById('bairro').value = cliente.Bairro;
+                document.getElementById('cidade').value = cliente.Cidade;
+                document.getElementById('uf').value = cliente.UF;
+                document.getElementById('data-nascimento').value = cliente["Data nascimento"];
             }
         });
     </script>
