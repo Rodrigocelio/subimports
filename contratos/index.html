@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de Cliente</title>
     <link rel="stylesheet" href="style.css"> <!-- Link para o arquivo CSS -->
 </head>
+
 <body>
     <div style="display: flex; flex-direction: column;">
-        <h2>STEP1 - INFORMAÇÕES SOBRE O CLIENTE</h2>
-        <div class="w-container">
-            
-            
+        <div style="display: flex; flex-direction: column; align-items: center">
+            <h2>STEP1 - INFORMAÇÕES SOBRE O CLIENTE</h2>
+        </div>
+        <div class="w-form-container">
+
+            <form><input type="text"><input type="text"><button>Buscar</button></input></input></form>
+
             <form class="w-form" id="form-cliente">
                 <label class="w-form-label" for="cod-cliente">Código do Cliente</label>
                 <input class="w-input" type="search" id="cod-cliente" placeholder="Digite o Código" required>
                 <button type="button" class="btn-primary" id="buscar">🔍 Buscar</button>
-                 <div style="line-height: 1px; border-bottom: 1px solid rgb(197, 192, 192); padding: 10px"> </div>
+                <div style="line-height: 1px; border-bottom: 1px solid rgb(197, 192, 192); padding: 10px"> </div>
 
                 <label class="w-form-label" for="nome">Nome</label>
                 <input class="w-input" type="text" id="nome" placeholder="Digite o nome" required>
@@ -46,7 +51,8 @@
                 <input class="w-input" type="text" id="uf" placeholder="Digite a UF" required>
 
                 <label class="w-form-label" for="data-nascimento">Data de Nascimento</label>
-                <input class="w-input" type="text" id="data-nascimento" placeholder="Digite a data de nascimento" required>
+                <input class="w-input" type="text" id="data-nascimento" placeholder="Digite a data de nascimento"
+                    required>
             </form>
         </div>
     </div>
@@ -72,7 +78,7 @@
                 }
 
                 const data = await response.json();
-                
+
                 // Procurar o cliente com base no código fornecido
                 const cliente = data.results.find(cliente => cliente.Codigo === codCliente);
 
@@ -91,7 +97,7 @@
         }
 
         // Evento para buscar o cliente ao clicar no botão
-        document.getElementById('buscar').addEventListener('click', async function() {
+        document.getElementById('buscar').addEventListener('click', async function () {
             const codCliente = document.getElementById('cod-cliente').value.trim();
 
             if (codCliente === "") {
@@ -104,16 +110,17 @@
                 // Preencher os campos com os dados retornados da API
                 document.getElementById('nome').value = cliente.Nome;
                 document.getElementById('email').value = cliente.Email;
-                document.getElementById('cpf').value = cliente["CNPJ / CPF"];
+                document.getElementById('cpf').value = cliente.Cpf_cnpj;
                 document.getElementById('celular').value = cliente.Celular;
                 document.getElementById('cep').value = cliente.CEP;
                 document.getElementById('endereco').value = cliente.Endereço;
                 document.getElementById('bairro').value = cliente.Bairro;
                 document.getElementById('cidade').value = cliente.Cidade;
                 document.getElementById('uf').value = cliente.UF;
-                document.getElementById('data-nascimento').value = cliente["Data nascimento"];
+                document.getElementById('data-nascimento').value = cliente.Data_nascimento;
             }
         });
     </script>
 </body>
+
 </html>
