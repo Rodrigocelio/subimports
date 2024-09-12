@@ -370,6 +370,19 @@ html.w-mod-touch * {
     padding: 9px 15px;
     text-decoration: none;
     display: inline-block;
+    flex: 1 0 5rem;
+}
+
+.w-button2 {
+    color: #fff;
+    line-height: inherit;
+    cursor: pointer;
+    background-color: #3898ec;
+    border: 0;
+    border-radius: 0;
+    padding: 9px 15px;
+    text-decoration: none;
+    flex: 1 0 5rem;
 }
 
 input.w-button {
@@ -597,6 +610,12 @@ button,
     margin: 0 0 15px;
 }
 
+.w-form-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
 .w-form-done {
     text-align: center;
     background-color: #ddd;
@@ -630,6 +649,19 @@ label {
     font-size: 14px;
     line-height: 1.42857;
     display: block;
+}
+
+.w-input2 {
+    color: #333;
+    vertical-align: middle;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 100%;
+    height: 38px;
+    padding: 8px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    flex: 1 0 10rem;
 }
 
 . {
@@ -843,6 +875,7 @@ textarea.w-select {
     min-width: 320px;
     margin-left: auto;
     margin-right: auto;
+    padding: 20px;
 }
 
 .w-container {
@@ -2996,6 +3029,7 @@ figcaption {
     font-weight: 500;
     line-height: 1.286em;
     transition: color .3s, border-color .3s;
+    flex: 1 0 10rem;
 }
 
 .input:hover {
@@ -4937,6 +4971,7 @@ figcaption {
     text-decoration: none;
     transition: box-shadow .3s, transform .3s, background-color .3s, color .3s;
     box-shadow: 0 1px 4px rgba(74, 58, 255, .26);
+    flex: 1 0 5rem;
 }
 
 .btn-primary-2:hover {
