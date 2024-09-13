@@ -6147,6 +6147,10 @@ figcaption {
 }
 
 @media screen and (max-width: 767px) {
+    body {
+        overflow-x: hidden;
+    }
+
     h1 {
         margin-bottom: 10px;
         font-size: 26px;
