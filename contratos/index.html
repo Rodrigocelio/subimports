@@ -9,54 +9,91 @@
 </head>
 
 <body>
-    <div style="display: flex; flex-direction: column;">
-        <div style="display: flex; flex-direction: column; align-items: center">
-            <h2>STEP1 - INFORMAÇÕES SOBRE O CLIENTE</h2>
+    <section class="container">
+        <div style="display: flex; flex-direction: column; align-items: center;">
+            <div
+                style="display: flex; flex-direction: column; align-items: center; padding-top: 50px; max-width: 380px;">
+                <h2 class="text-500 bold mg-bottom-12px">ETAPA 1</h2>
+                <p class="mg-bottom-24px">INFORMAÇÕES SOBRE O CLIENTE</p>
+            </div>
+            <div class="w-form-container">
+
+                <Div class="card component-card">
+                    <label class="w-form-label" for="cod-cliente">Código do Cliente</label>
+                    <form class="w-form-wrapper" id="form-busca">
+                        <div class="position-relative-2 flex-horizontal"><input type="text"
+                                class="input icon-inside-right input w-input" maxlength="256" name="Name-4"
+                                data-name="Name 4" placeholder="Código do cliente" id="cod-cliente"><img
+                                src="https://assets.website-files.com/645128e3dbdad55ed2803eff/646d22faaddd674071e73457_input-search-icon-dashflow-webflow-template.svg"
+                                loading="eager" width="12" alt="" class="icon-inside-input-right"></div>
+                        <button class="btn-primary-2" type="button" id="buscar">Buscar</button>
+                    </form>
+
+                    <form style="padding-top: 10px;" class="w-form" id="form-cliente">
+                        <div class="grid-2-columns _1-col-tablet">
+                            <div>
+                                <label class="w-form-label" for="nome">Nome</label>
+                                <input class="input w-input" type="text" id="nome" placeholder="Digite o nome" required>
+                            </div>
+
+                            <div>
+                                <label class="w-form-label" for="email">Email</label>
+                                <input class="input w-input" type="text" id="email" placeholder="Digite o email"
+                                    required>
+                            </div>
+
+                            <div>
+                                <label class="w-form-label" for="cpf">CPF/CNPJ</label>
+                                <input class="input w-input" type="text" id="cpf" placeholder="Digite o CPF/CNPJ"
+                                    required>
+                            </div>
+
+                            <div>
+                                <label class="w-form-label" for="celular">Celular</label>
+                                <input class="input w-input" type="text" id="celular" placeholder="Digite o celular"
+                                    required>
+                            </div>
+
+                            <div>
+                                <label class="w-form-label" for="cep">CEP</label>
+                                <input class="input w-input" type="text" id="cep" placeholder="Digite o CEP" required>
+                            </div>
+
+                            <div>
+                                <label class="w-form-label" for="endereco">Endereço</label>
+                                <input class="input w-input" type="text" id="endereco" placeholder="Digite o endereço"
+                                    required>
+                            </div>
+
+                            <div>
+                                <label class="w-form-label" for="bairro">Bairro</label>
+                                <input class="input w-input" type="text" id="bairro" placeholder="Digite o bairro"
+                                    required>
+                            </div>
+
+                            <div>
+                                <label class="w-form-label" for="cidade">Cidade</label>
+                                <input class="input w-input" type="text" id="cidade" placeholder="Digite a cidade"
+                                    required>
+                            </div>
+
+                            <div>
+                                <label class="w-form-label" for="uf">UF</label>
+                                <input class="input w-input" type="text" id="uf" placeholder="Digite a UF" required>
+                            </div>
+
+                            <div>
+                                <label class="w-form-label" for="data-nascimento">Data de Nascimento</label>
+                                <input class="input w-input" type="text" id="data-nascimento"
+                                    placeholder="Digite a data de nascimento" required>
+                            </div>
+                        </div>
+
+                    </form>
+                </Div>
+            </div>
         </div>
-        <div class="w-form-container">
-
-            <Div class="card component-card">
-                <label class="w-form-label" for="cod-cliente">Código do Cliente</label>
-                <form class="w-form-wrapper" id="form-busca">
-                    <input class="input icon-inside-right" type="text" id="cod-cliente" placeholder="Digite o Código">
-                    <button class="btn-primary-2" type="button" id="buscar">Buscar</button>
-                </form>
-
-                <form style="padding-top: 10px;" class="w-form" id="form-cliente">
-                    <label class="w-form-label" for="nome">Nome</label>
-                    <input class="w-input" type="text" id="nome" placeholder="Digite o nome" required>
-
-                    <label class="w-form-label" for="email">Email</label>
-                    <input class="w-input" type="text" id="email" placeholder="Digite o email" required>
-
-                    <label class="w-form-label" for="cpf">CPF/CNPJ</label>
-                    <input class="w-input" type="text" id="cpf" placeholder="Digite o CPF/CNPJ" required>
-
-                    <label class="w-form-label" for="celular">Celular</label>
-                    <input class="w-input" type="text" id="celular" placeholder="Digite o celular" required>
-
-                    <label class="w-form-label" for="cep">CEP</label>
-                    <input class="w-input" type="text" id="cep" placeholder="Digite o CEP" required>
-
-                    <label class="w-form-label" for="endereco">Endereço</label>
-                    <input class="w-input" type="text" id="endereco" placeholder="Digite o endereço" required>
-
-                    <label class="w-form-label" for="bairro">Bairro</label>
-                    <input class="w-input" type="text" id="bairro" placeholder="Digite o bairro" required>
-
-                    <label class="w-form-label" for="cidade">Cidade</label>
-                    <input class="w-input" type="text" id="cidade" placeholder="Digite a cidade" required>
-
-                    <label class="w-form-label" for="uf">UF</label>
-                    <input class="w-input" type="text" id="uf" placeholder="Digite a UF" required>
-
-                    <label class="w-form-label" for="data-nascimento">Data de Nascimento</label>
-                    <input class="w-input" type="text" id="data-nascimento" placeholder="Digite a data de nascimento"
-                        required>
-                </form>
-            </Div>
-        </div>
-    </div>
+    </section>
 
     <script>
         // URL da API do Baserow e token de autenticação

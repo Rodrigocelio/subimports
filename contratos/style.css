@@ -636,6 +636,10 @@ label {
     display: block;
 }
 
+form {
+    margin: 0 0 15px;
+}
+
 .w-input,
 .w-select {
     color: #333;
@@ -3362,6 +3366,13 @@ figcaption {
 .position-relative---z-index-1 {
     z-index: 1;
     position: relative;
+}
+
+
+.position-relative-2 {
+    z-index: 1;
+    position: relative;
+    flex: 1 0 10rem;
 }
 
 .dashboard-content {
